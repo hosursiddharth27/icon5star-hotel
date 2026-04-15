@@ -1,0 +1,106 @@
+<%- include('partials/header') %>
+
+<div class="admin-page">
+  <div style="margin-bottom:40px;">
+    <div class="section-tag">Admin Access</div>
+    <h1 style="font-family:'Playfair Display',serif; font-size:48px; font-weight:700;">Dashboard <em style="color:var(--gold); font-style:italic;">Overview</em></h1>
+  </div>
+
+  <!-- Stats -->
+  <div class="admin-stats">
+    <div class="admin-stat">
+      <div class="admin-stat-num"><%= users %></div>
+      <div class="admin-stat-label">Registered Members</div>
+    </div>
+    <div class="admin-stat">
+      <div class="admin-stat-num"><%= roomBookings.length %></div>
+      <div class="admin-stat-label">Room Bookings</div>
+    </div>
+    <div class="admin-stat">
+      <div class="admin-stat-num"><%= tableBookings.length %></div>
+      <div class="admin-stat-label">Table Reservations</div>
+    </div>
+    <div class="admin-stat">
+      <div class="admin-stat-num">₹<%= revenue.toLocaleString('en-IN') %></div>
+      <div class="admin-stat-label">Total Revenue</div>
+    </div>
+  </div>
+
+  <!-- Room Bookings Table -->
+  <div style="margin-bottom:60px;">
+    <h2 style="font-family:'Playfair Display',serif; font-size:32px; margin-bottom:24px;">Room <em style="color:var(--gold); font-style:italic;">Bookings</em></h2>
+    <div style="overflow-x:auto; border:1px solid var(--border);">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Guest</th>
+            <th>Room Type</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Guests</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(roomBookings.length === 0) { %>
+            <tr><td colspan="8" style="text-align:center; padding:30px; color:var(--text-muted);">No room bookings yet</td></tr>
+          <% } %>
+          <% roomBookings.forEach(b => { %>
+            <tr>
+              <td style="color:var(--gold)"><%= b.bookingId %></td>
+              <td><%= b.userName %></td>
+              <td><%= b.roomType %></td>
+              <td><%= new Date(b.checkIn).toLocaleDateString('en-IN') %></td>
+              <td><%= new Date(b.checkOut).toLocaleDateString('en-IN') %></td>
+              <td><%= b.guests %></td>
+              <td style="color:var(--gold)">₹<%= b.totalPrice?.toLocaleString('en-IN') %></td>
+              <td><span class="badge badge-<%= b.status %>"><%= b.status %></span></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Table Bookings -->
+  <div>
+    <h2 style="font-family:'Playfair Display',serif; font-size:32px; margin-bottom:24px;">Table <em style="color:var(--gold); font-style:italic;">Reservations</em></h2>
+    <div style="overflow-x:auto; border:1px solid var(--border);">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Guest</th>
+            <th>Table Type</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Guests</th>
+            <th>Occasion</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if(tableBookings.length === 0) { %>
+            <tr><td colspan="8" style="text-align:center; padding:30px; color:var(--text-muted);">No table bookings yet</td></tr>
+          <% } %>
+          <% tableBookings.forEach(b => { %>
+            <tr>
+              <td style="color:var(--gold)"><%= b.bookingId %></td>
+              <td><%= b.userName %></td>
+              <td><%= b.tableType %></td>
+              <td><%= new Date(b.date).toLocaleDateString('en-IN') %></td>
+              <td><%= b.time %></td>
+              <td><%= b.guests %></td>
+              <td><%= b.occasion || '—' %></td>
+              <td><span class="badge badge-<%= b.status %>"><%= b.status %></span></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

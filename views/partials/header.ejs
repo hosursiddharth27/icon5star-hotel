@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Icon5Star Hotel – Where Luxury Becomes Legend</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+</head>
+<body>
+
+<!-- Page Loader -->
+<div class="page-loader">
+  <div class="loader-logo">✦</div>
+  <div class="loader-bar"></div>
+  <div class="loader-text">Icon5Star Hotel</div>
+</div>
+
+<!-- Custom Cursor -->
+<div class="cursor"></div>
+<div class="cursor-follower"></div>
+
+<!-- Flash Messages -->
+<div class="flash-messages">
+  <% if (success && success.length > 0) { %>
+    <% success.forEach(msg => { %>
+      <div class="alert alert-success">✓ &nbsp;<%= msg %></div>
+    <% }) %>
+  <% } %>
+  <% if (error && error.length > 0) { %>
+    <% error.forEach(msg => { %>
+      <div class="alert alert-error">✕ &nbsp;<%= msg %></div>
+    <% }) %>
+  <% } %>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+  <a href="/" class="logo">
+    ICON<span>5</span>STAR
+    <span class="stars">★ ★ ★ ★ ★</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/rooms">Rooms</a></li>
+    <li><a href="/dining">Dining</a></li>
+    <li><a href="/amenities">Amenities</a></li>
+    <li><a href="/gallery">Gallery</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <% if (user) { %>
+      <li><a href="/booking/room">Book Room</a></li>
+      <li><a href="/booking/table">Book Table</a></li>
+    <% } %>
+    <% if (!user) { %>
+      <li><a href="/auth/login" class="nav-cta">Sign In</a></li>
+    <% } else { %>
+      <li>
+        <div class="nav-user">
+          <span class="nav-user-name">Welcome, <%= user.name.split(' ')[0] %></span>
+          <a href="/auth/profile" class="btn-logout">Profile</a>
+          <a href="/auth/logout" class="btn-logout">Logout</a>
+        </div>
+      </li>
+    <% } %>
+  </ul>
+</nav>

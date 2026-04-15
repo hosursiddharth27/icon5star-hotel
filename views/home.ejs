@@ -1,0 +1,303 @@
+<%- include('partials/header') %>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">★ &nbsp; Welcome to Excellence &nbsp; ★</div>
+    <h1 class="hero-title">
+      Where<br><span class="italic">Luxury</span><br>Becomes Legend
+    </h1>
+    <p class="hero-subtitle">Five-star sanctuary. Extraordinary experiences. Timeless elegance.</p>
+    <div class="hero-btns">
+      <% if (user) { %>
+        <a href="/booking/room" class="btn-primary">Reserve Your Suite</a>
+        <a href="/booking/table" class="btn-secondary">Book a Table</a>
+      <% } else { %>
+        <a href="/auth/signup" class="btn-primary">Begin Your Journey</a>
+        <a href="/rooms" class="btn-secondary">Explore Rooms</a>
+      <% } %>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span class="scroll-text">Discover More</span>
+    <div class="scroll-line"></div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num" data-target="25" data-suffix="+">0+</div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="500" data-suffix="+">0+</div>
+      <div class="stat-label">Luxury Suites</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="99" data-suffix="%">0%</div>
+      <div class="stat-label">Guest Satisfaction</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE / ABOUT -->
+<section class="experience-section">
+  <div class="exp-images reveal">
+    <img class="exp-img-main" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80" alt="Luxury Suite">
+    <img class="exp-img-accent" src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=600&q=80" alt="Hotel Lobby">
+    <div class="exp-badge">
+      <div class="exp-badge-num">★5★</div>
+      <div class="exp-badge-text">Icon5Star Hotel</div>
+    </div>
+  </div>
+  <div>
+    <div class="section-tag reveal">About Us</div>
+    <h2 class="section-title reveal reveal-delay-1">The Art of <em>Extraordinary</em> Hospitality</h2>
+    <p class="section-sub reveal reveal-delay-2">Nestled in the heart of Rajkot, Icon5Star Hotel represents the pinnacle of luxury hospitality. For over two decades, we've crafted experiences that transcend the ordinary.</p>
+    <div class="exp-features">
+      <div class="exp-feature reveal reveal-delay-1">
+        <div class="exp-feature-icon">🏊</div>
+        <div class="exp-feature-title">Infinity Pool</div>
+        <div class="exp-feature-text">Rooftop pool with panoramic city views open 24 hours</div>
+      </div>
+      <div class="exp-feature reveal reveal-delay-2">
+        <div class="exp-feature-icon">🧖</div>
+        <div class="exp-feature-title">Luxury Spa</div>
+        <div class="exp-feature-text">Ayurvedic & international wellness treatments</div>
+      </div>
+      <div class="exp-feature reveal reveal-delay-3">
+        <div class="exp-feature-icon">🍽️</div>
+        <div class="exp-feature-title">Fine Dining</div>
+        <div class="exp-feature-text">3 award-winning restaurants with master chefs</div>
+      </div>
+      <div class="exp-feature reveal reveal-delay-4">
+        <div class="exp-feature-icon">🎰</div>
+        <div class="exp-feature-title">Club Lounge</div>
+        <div class="exp-feature-text">Exclusive members-only lounge & bar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS PREVIEW -->
+<section class="section" style="padding-top:0;">
+  <div style="text-align:center; margin-bottom:60px;">
+    <div class="section-tag reveal" style="justify-content:center;">Our Accommodations</div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Rooms & <em>Suites</em></h2>
+  </div>
+  <div class="rooms-grid">
+    <div class="room-card reveal">
+      <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80" alt="Deluxe Room">
+      <div class="room-card-overlay"></div>
+      <div class="room-card-content">
+        <div class="room-type">Standard</div>
+        <div class="room-name">Deluxe Room</div>
+        <div class="room-price">₹4,999 <span>/ night</span></div>
+        <a href="/booking/room" class="room-btn">Book Now</a>
+      </div>
+    </div>
+    <div class="room-card reveal reveal-delay-1">
+      <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" alt="Premium Suite">
+      <div class="room-card-overlay"></div>
+      <div class="room-card-content">
+        <div class="room-type">Premium</div>
+        <div class="room-name">Premium Suite</div>
+        <div class="room-price">₹9,999 <span>/ night</span></div>
+        <a href="/booking/room" class="room-btn">Book Now</a>
+      </div>
+    </div>
+    <div class="room-card reveal reveal-delay-2">
+      <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&q=80" alt="Royal Suite">
+      <div class="room-card-overlay"></div>
+      <div class="room-card-content">
+        <div class="room-type">Exclusive</div>
+        <div class="room-name">Royal Suite</div>
+        <div class="room-price">₹18,999 <span>/ night</span></div>
+        <a href="/booking/room" class="room-btn">Book Now</a>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:40px;">
+    <a href="/rooms" class="btn-secondary">View All Accommodations →</a>
+  </div>
+</section>
+
+<!-- FOOD / DINING PREVIEW -->
+<section style="padding: 0 60px 120px;" id="dining-preview">
+  <div style="text-align:center; margin-bottom:60px;">
+    <div class="section-tag reveal" style="justify-content:center;">Fine Dining</div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Culinary <em>Masterpieces</em></h2>
+    <p style="text-align:center; color:var(--text-muted); font-family:'Cormorant Garamond',serif; font-size:20px; margin-top:10px;" class="reveal reveal-delay-2">Authentic Indian cuisine crafted by award-winning chefs</p>
+  </div>
+  <div class="food-grid">
+    <div class="food-card reveal">
+      <img class="food-img" src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=500&q=80" alt="Dal Makhani">
+      <div class="food-info">
+        <div class="food-tag">🌱 Vegetarian</div>
+        <div class="food-name">Dal Makhani Royal</div>
+        <div class="food-desc">Slow-cooked black lentils in aromatic spices with house-made cream</div>
+        <div class="food-price">₹650 <span>per serving</span></div>
+      </div>
+    </div>
+    <div class="food-card reveal reveal-delay-1">
+      <img class="food-img" src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=500&q=80" alt="Butter Chicken">
+      <div class="food-info">
+        <div class="food-tag">🍗 Non-Veg</div>
+        <div class="food-name">Murgh Makhani</div>
+        <div class="food-desc">Tender chicken in velvety tomato-cream sauce with tandoor char</div>
+        <div class="food-price">₹950 <span>per serving</span></div>
+      </div>
+    </div>
+    <div class="food-card reveal reveal-delay-2">
+      <img class="food-img" src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=500&q=80" alt="Biryani">
+      <div class="food-info">
+        <div class="food-tag">👑 Signature</div>
+        <div class="food-name">Icon5Star Biryani</div>
+        <div class="food-desc">Aged Basmati, saffron, 24-hour marinated protein, raita</div>
+        <div class="food-price">₹1,250 <span>per serving</span></div>
+      </div>
+    </div>
+    <div class="food-card reveal reveal-delay-3">
+      <img class="food-img" src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=500&q=80" alt="Dessert">
+      <div class="food-info">
+        <div class="food-tag">🍮 Dessert</div>
+        <div class="food-name">Gulab Jamun Supreme</div>
+        <div class="food-desc">Rose-infused dumplings with saffron ice cream & gold leaf</div>
+        <div class="food-price">₹450 <span>per plate</span></div>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:40px;">
+    <a href="/dining" class="btn-secondary">Full Menu & Dining →</a>
+  </div>
+</section>
+
+<!-- SPECIAL OFFERS -->
+<section class="offers-section">
+  <div style="text-align:center; margin-bottom:60px;">
+    <div class="section-tag reveal" style="justify-content:center;">Exclusive Deals</div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">Special <em>Offers</em></h2>
+  </div>
+  <div class="offers-grid">
+    <div class="offer-card reveal">
+      <div class="offer-badge">SAVE 30%</div>
+      <span class="offer-icon">🌙</span>
+      <div class="offer-title">Weekend Getaway</div>
+      <div class="offer-desc">Stay 2 nights, get complimentary breakfast, spa access, and airport transfer included.</div>
+      <div class="offer-price">₹12,999 <del>₹18,999</del></div>
+    </div>
+    <div class="offer-card reveal reveal-delay-1">
+      <div class="offer-badge">HONEYMOON</div>
+      <span class="offer-icon">💍</span>
+      <div class="offer-title">Romance Package</div>
+      <div class="offer-desc">Royal Suite, candlelight dinner, rose petal decoration, couple spa, champagne on arrival.</div>
+      <div class="offer-price">₹28,999 <del>₹42,000</del></div>
+    </div>
+    <div class="offer-card reveal reveal-delay-2">
+      <div class="offer-badge">BUSINESS</div>
+      <span class="offer-icon">💼</span>
+      <div class="offer-title">Corporate Stay</div>
+      <div class="offer-desc">Premium Suite, conference access, high-speed WiFi, all-day coffee & evening cocktails.</div>
+      <div class="offer-price">₹8,499 <del>₹12,000</del></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div style="text-align:center; margin-bottom:60px;">
+    <div class="section-tag reveal" style="justify-content:center;">Guest Reviews</div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center;">What Our <em>Guests</em> Say</h2>
+  </div>
+  <div style="overflow:hidden;">
+    <div class="testimonials-track">
+      <% const testimonials = [
+        { name: 'Arjun Mehta', loc: 'Mumbai', text: 'Absolutely breathtaking experience. The Presidential Suite felt like a palace. Service was impeccable.', stars: '★★★★★' },
+        { name: 'Priya Sharma', loc: 'Delhi', text: 'The spa treatment was life-changing. Icon5Star has redefined luxury for me. Will definitely return.', stars: '★★★★★' },
+        { name: 'Raj Patel', loc: 'Ahmedabad', text: 'Celebrated our anniversary here. The surprise rose decoration and the biryani were absolutely world-class.', stars: '★★★★★' },
+        { name: 'Kavya Nair', loc: 'Bangalore', text: 'Finest hotel in Gujarat. The rooftop pool at sunset is something I will never forget in my life.', stars: '★★★★★' },
+        { name: 'Vikram Singh', loc: 'Jaipur', text: 'Business trip transformed into a luxury escape. The concierge team went above and beyond my expectations.', stars: '★★★★★' },
+        { name: 'Ananya Roy', loc: 'Kolkata', text: 'The dining experience here rivals any 5-star restaurant in India. Dal Makhani Royal was extraordinary.', stars: '★★★★★' },
+      ]; %>
+      <% [...testimonials, ...testimonials].forEach(t => { %>
+        <div class="testimonial-card">
+          <div class="stars-rating"><%= t.stars %></div>
+          <p class="testimonial-text">"<%= t.text %>"</p>
+          <div class="testimonial-author">
+            <div style="width:50px;height:50px;border-radius:50%;background:var(--gradient-gold);display:flex;align-items:center;justify-content:center;color:var(--black);font-weight:700;font-size:18px;border:2px solid var(--gold);">
+              <%= t.name[0] %>
+            </div>
+            <div>
+              <div class="author-name"><%= t.name %></div>
+              <div class="author-loc"><%= t.loc %></div>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-tag reveal" style="justify-content:center; color:var(--gold);">Begin Your Experience</div>
+  <h2 class="cta-title reveal reveal-delay-1">Ready for the <em style="font-style:italic; color:var(--gold);">Extraordinary</em>?</h2>
+  <p class="cta-sub reveal reveal-delay-2">Every stay at Icon5Star is a story worth telling. Book your suite today.</p>
+  <div class="hero-btns reveal reveal-delay-3">
+    <% if (user) { %>
+      <a href="/booking/room" class="btn-primary">Book Your Room Now</a>
+      <a href="/booking/table" class="btn-secondary">Reserve a Table</a>
+    <% } else { %>
+      <a href="/auth/signup" class="btn-primary">Create Account & Book</a>
+      <a href="/auth/login" class="btn-secondary">Sign In to Book</a>
+    <% } %>
+  </div>
+</section>
+
+<!-- AMENITIES STRIP -->
+<section class="section" style="padding:80px 0;">
+  <div class="amenities-grid">
+    <div class="amenity-item reveal">
+      <span class="amenity-icon">🏊‍♂️</span>
+      <div class="amenity-name">Infinity Pool</div>
+      <div class="amenity-desc">Rooftop pool with panoramic views, heated year-round</div>
+    </div>
+    <div class="amenity-item reveal reveal-delay-1">
+      <span class="amenity-icon">🧘‍♀️</span>
+      <div class="amenity-name">Luxury Spa</div>
+      <div class="amenity-desc">12 treatment rooms, ayurvedic & western therapies</div>
+    </div>
+    <div class="amenity-item reveal reveal-delay-2">
+      <span class="amenity-icon">💪</span>
+      <div class="amenity-name">Fitness Center</div>
+      <div class="amenity-desc">State-of-art gym with personal trainer on call 24/7</div>
+    </div>
+    <div class="amenity-item reveal reveal-delay-3">
+      <span class="amenity-icon">🎭</span>
+      <div class="amenity-name">Event Halls</div>
+      <div class="amenity-desc">Grand ballroom for 1000+ guests, 5 meeting rooms</div>
+    </div>
+    <div class="amenity-item reveal">
+      <span class="amenity-icon">🍸</span>
+      <div class="amenity-name">Sky Bar</div>
+      <div class="amenity-desc">Rooftop cocktail bar with live music every weekend</div>
+    </div>
+    <div class="amenity-item reveal reveal-delay-1">
+      <span class="amenity-icon">🚗</span>
+      <div class="amenity-name">Valet Parking</div>
+      <div class="amenity-desc">Complimentary valet, electric vehicle charging stations</div>
+    </div>
+    <div class="amenity-item reveal reveal-delay-2">
+      <span class="amenity-icon">✈️</span>
+      <div class="amenity-name">Airport Transfer</div>
+      <div class="amenity-desc">Luxury fleet, 24/7 chauffeur service available</div>
+    </div>
+    <div class="amenity-item reveal reveal-delay-3">
+      <span class="amenity-icon">🛎️</span>
+      <div class="amenity-name">Butler Service</div>
+      <div class="amenity-desc">Dedicated personal butler for every suite guest</div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

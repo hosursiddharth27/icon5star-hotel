@@ -1,0 +1,127 @@
+<%- include('partials/header') %>
+
+<div class="booking-page">
+  <div class="booking-page-header">
+    <div class="section-tag" style="justify-content:center;">Step Into Luxury</div>
+    <h1 class="section-title" style="text-align:center;">Reserve Your <em>Suite</em></h1>
+    <p style="text-align:center; color:var(--text-muted); font-family:'Cormorant Garamond',serif; font-size:20px; margin-top:10px;">
+      Select from our curated collection of extraordinary accommodations
+    </p>
+  </div>
+
+  <div class="booking-grid">
+    <!-- Form -->
+    <div class="booking-form-wrap">
+      <h2 style="font-family:'Playfair Display',serif; font-size:28px; margin-bottom:30px;">Booking Details</h2>
+      <form action="/booking/room" method="POST">
+        <div class="form-group">
+          <label class="form-label">Room Type</label>
+          <select name="roomType" id="roomType" class="form-control" required>
+            <option value="">Select your room</option>
+            <option value="Deluxe Room">Deluxe Room — ₹4,999/night</option>
+            <option value="Premium Suite">Premium Suite — ₹9,999/night</option>
+            <option value="Royal Suite">Royal Suite — ₹18,999/night</option>
+            <option value="Presidential Suite">Presidential Suite — ₹34,999/night</option>
+            <option value="Penthouse">Penthouse — ₹74,999/night</option>
+          </select>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div class="form-group">
+            <label class="form-label">Check-in Date</label>
+            <input type="date" name="checkIn" id="checkIn" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Check-out Date</label>
+            <input type="date" name="checkOut" id="checkOut" class="form-control" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Number of Guests</label>
+          <select name="guests" class="form-control" required>
+            <option value="1">1 Guest</option>
+            <option value="2" selected>2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Special Requests (Optional)</label>
+          <textarea name="specialRequests" class="form-control" rows="3" placeholder="E.g. early check-in, room decoration, dietary needs..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Confirm Reservation →</button>
+      </form>
+    </div>
+
+    <!-- Summary -->
+    <div>
+      <div class="booking-summary">
+        <div style="font-size:10px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:24px;">Booking Summary</div>
+        <div class="summary-item">
+          <span>Room Type</span>
+          <span id="summaryRoom" style="color:var(--white); font-weight:500;">Select room</span>
+        </div>
+        <div class="summary-item">
+          <span>Price/Night</span>
+          <span id="summaryPrice" style="color:var(--gold);">—</span>
+        </div>
+        <div class="summary-item">
+          <span>Duration</span>
+          <span id="summaryNights">—</span>
+        </div>
+        <hr class="summary-divider">
+        <div class="summary-total">
+          <span style="color:var(--text-muted);">Total</span>
+          <span class="price" id="summaryTotal">—</span>
+        </div>
+        <div style="margin-top:20px; padding:16px; background:rgba(201,168,76,0.05); border:1px solid var(--border); font-size:12px; color:var(--text-muted); line-height:1.6;">
+          ✓ Free cancellation up to 48 hours<br>
+          ✓ Complimentary breakfast included<br>
+          ✓ Secure encrypted payment<br>
+          ✓ 24/7 concierge support
+        </div>
+      </div>
+
+      <!-- Room Cards Info -->
+      <div style="margin-top:30px;">
+        <div style="font-size:10px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:20px;">Room Options</div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-name">🛏️ Deluxe Room</span>
+            <span class="price-card-price">₹4,999</span>
+          </div>
+          <div class="price-card-desc">35 sqm · King Bed · City View · WiFi · Minibar</div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-name">✨ Premium Suite</span>
+            <span class="price-card-price">₹9,999</span>
+          </div>
+          <div class="price-card-desc">60 sqm · Living Room · Pool View · Butler · Jacuzzi</div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-name">👑 Royal Suite</span>
+            <span class="price-card-price">₹18,999</span>
+          </div>
+          <div class="price-card-desc">90 sqm · 2 Bedrooms · Terrace · Private Pool</div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-name">🏛️ Presidential Suite</span>
+            <span class="price-card-price">₹34,999</span>
+          </div>
+          <div class="price-card-desc">150 sqm · Full Floor · Chef Service · Limo Transfer</div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-name">🌟 Penthouse</span>
+            <span class="price-card-price">₹74,999</span>
+          </div>
+          <div class="price-card-desc">300 sqm · Rooftop · Private Pool · Helipad Access</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

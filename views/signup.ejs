@@ -1,0 +1,66 @@
+<%- include('partials/header') %>
+
+<div class="form-page">
+  <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1920&q=80') center/cover;opacity:0.08;"></div>
+  <div class="form-container">
+    <div style="text-align:center; margin-bottom:8px;">
+      <div style="font-family:'Playfair Display',serif; font-size:14px; letter-spacing:4px; color:var(--gold);">★ ★ ★ ★ ★</div>
+    </div>
+    <h1 class="form-title" style="text-align:center;">Join <em>Icon5Star</em></h1>
+    <p class="form-sub" style="text-align:center;">Create your account and unlock a world of luxury privileges</p>
+
+    <form action="/auth/signup" method="POST">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" name="name" class="form-control" placeholder="Your full name" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" name="email" class="form-control" placeholder="your@email.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" name="phone" class="form-control" placeholder="+91 98765 43210" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Create a strong password" required minlength="6">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" name="confirmPassword" class="form-control" placeholder="Repeat your password" required>
+      </div>
+      <div style="margin-bottom:24px;">
+        <label style="display:flex; align-items:flex-start; gap:12px; cursor:none;">
+          <input type="checkbox" required style="margin-top:3px; accent-color:var(--gold);">
+          <span style="font-size:12px; color:var(--text-muted); line-height:1.6;">
+            I agree to Icon5Star's <a href="#" style="color:var(--gold);">Terms of Service</a> and 
+            <a href="#" style="color:var(--gold);">Privacy Policy</a>. I consent to receiving exclusive offers and updates.
+          </span>
+        </label>
+      </div>
+      <button type="submit" class="form-submit">Create My Account</button>
+    </form>
+
+    <div style="text-align:center; margin-top:24px;">
+      <p class="form-link">Already a member? <a href="/auth/login">Sign In</a></p>
+    </div>
+
+    <div style="margin-top:40px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; text-align:center;">
+      <div style="padding:16px; border:1px solid var(--border);">
+        <div style="font-size:20px; margin-bottom:6px;">🎁</div>
+        <div style="font-size:11px; color:var(--text-muted);">Welcome Bonus</div>
+      </div>
+      <div style="padding:16px; border:1px solid var(--border);">
+        <div style="font-size:20px; margin-bottom:6px;">⭐</div>
+        <div style="font-size:11px; color:var(--text-muted);">Loyalty Points</div>
+      </div>
+      <div style="padding:16px; border:1px solid var(--border);">
+        <div style="font-size:20px; margin-bottom:6px;">🔔</div>
+        <div style="font-size:11px; color:var(--text-muted);">Early Access</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

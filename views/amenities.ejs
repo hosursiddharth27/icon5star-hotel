@@ -1,0 +1,70 @@
+<%- include('partials/header') %>
+
+<section style="padding:140px 60px 80px;">
+  <div style="text-align:center; margin-bottom:80px;">
+    <div class="section-tag reveal" style="justify-content:center;">World-Class Facilities</div>
+    <h1 class="section-title reveal" style="text-align:center;">Hotel <em>Amenities</em></h1>
+    <p style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--text-muted); margin-top:16px;" class="reveal">Everything you need. And everything you never knew you needed.</p>
+  </div>
+
+  <% const amenityGroups = [
+    {
+      title: 'Wellness & Leisure',
+      icon: '🧘',
+      items: [
+        { icon: '🏊', name: 'Infinity Rooftop Pool', desc: '30th floor heated pool open 24/7 with panoramic city views. Dedicated pool butler service.' },
+        { icon: '🧖', name: 'Luxury Ayurvedic Spa', desc: '12 treatment rooms, couple suites. Traditional Ayurvedic, Swedish, Deep Tissue & Thai therapies.' },
+        { icon: '💪', name: 'State-of-Art Gym', desc: 'Technogym equipment, personal trainers, yoga studio, spinning classes. Open 24 hours.' },
+        { icon: '🎾', name: 'Sports Complex', desc: 'Tennis court, squash, indoor badminton. Equipment provided. Coaching available.' },
+      ]
+    },
+    {
+      title: 'Dining & Entertainment',
+      icon: '🍸',
+      items: [
+        { icon: '🍽️', name: 'Three Restaurants', desc: 'Spice Monarch (Indian), The Icon Grill (Fusion), and Sky5 Rooftop Bar & Dining.' },
+        { icon: '🎸', name: 'Live Music Lounge', desc: 'Nightly live performances — jazz, classical Indian, and acoustic sets every weekend.' },
+        { icon: '🎰', name: 'Members Club Lounge', desc: 'Exclusive lounge for suite guests with private bar, reading room, and cigar humidor.' },
+        { icon: '🍫', name: 'In-Room Dining', desc: 'Full restaurant menu available 24/7 to your room with dedicated service team.' },
+      ]
+    },
+    {
+      title: 'Business & Events',
+      icon: '💼',
+      items: [
+        { icon: '🎭', name: 'Grand Ballroom', desc: '1000+ guest capacity, crystal chandeliers, state-of-art AV, dedicated event coordinator.' },
+        { icon: '🤝', name: '5 Conference Rooms', desc: 'Fully equipped boardrooms from 10 to 200 pax. Video conferencing and secretarial support.' },
+        { icon: '💻', name: 'Business Center', desc: '24/7 access with high-speed internet, printing, scanning, and administrative support.' },
+        { icon: '📡', name: 'Fiber Internet', desc: '1 Gbps dedicated fiber, complimentary across hotel. Video call studio available.' },
+      ]
+    },
+    {
+      title: 'Concierge & Transport',
+      icon: '🛎️',
+      items: [
+        { icon: '✈️', name: 'Airport Transfer', desc: 'Luxury fleet — Mercedes S-Class and BMW 7-series. Available 24/7, advance booking.' },
+        { icon: '🚗', name: 'Valet Parking', desc: 'Complimentary valet for all guests. EV charging stations and secure underground garage.' },
+        { icon: '🛎️', name: 'Butler Service', desc: 'Personal butler assigned for all suite guests. 24/7 on-call for every requirement.' },
+        { icon: '🌍', name: 'Tour & Experiences', desc: 'City tours, heritage walks, private shopping, cultural experiences curated by our team.' },
+      ]
+    },
+  ]; %>
+
+  <% amenityGroups.forEach((group, gi) => { %>
+    <div style="margin-bottom:80px;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:42px; margin-bottom:10px; display:flex; align-items:center; gap:16px;" class="reveal"><span><%= group.icon %></span> <em style="color:var(--gold); font-style:italic;"><%= group.title %></em></h2>
+      <div style="height:1px; background:var(--border); margin-bottom:40px;"></div>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border);">
+        <% group.items.forEach((item, ii) => { %>
+          <div class="amenity-item reveal" style="transition-delay:<%= ii*0.1 %>s; background:var(--dark);">
+            <span class="amenity-icon"><%= item.icon %></span>
+            <div class="amenity-name"><%= item.name %></div>
+            <div class="amenity-desc"><%= item.desc %></div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  <% }) %>
+</section>
+
+<%- include('partials/footer') %>

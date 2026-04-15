@@ -1,0 +1,82 @@
+<%- include('partials/header') %>
+
+<section style="padding:140px 60px 80px;">
+  <div style="text-align:center; margin-bottom:80px;">
+    <div class="section-tag reveal" style="justify-content:center;">Get In Touch</div>
+    <h1 class="section-title reveal" style="text-align:center;">Contact <em>Us</em></h1>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-card reveal">
+        <div class="contact-card-icon">📍</div>
+        <div>
+          <div class="contact-card-title">Our Address</div>
+          <div class="contact-card-text">Icon5Star Tower, MG Road<br>Rajkot, Gujarat — 360001<br>India</div>
+        </div>
+      </div>
+      <div class="contact-card reveal reveal-delay-1">
+        <div class="contact-card-icon">📞</div>
+        <div>
+          <div class="contact-card-title">Phone</div>
+          <div class="contact-card-text">+91 98765 43210 (Reservations)<br>+91 98765 43211 (Concierge)<br>Toll Free: 1800-ICON-5STAR</div>
+        </div>
+      </div>
+      <div class="contact-card reveal reveal-delay-2">
+        <div class="contact-card-icon">✉️</div>
+        <div>
+          <div class="contact-card-title">Email</div>
+          <div class="contact-card-text">reservations@icon5star.com<br>events@icon5star.com<br>feedback@icon5star.com</div>
+        </div>
+      </div>
+      <div class="contact-card reveal reveal-delay-3">
+        <div class="contact-card-icon">🕐</div>
+        <div>
+          <div class="contact-card-title">Hours</div>
+          <div class="contact-card-text">Reservations: 6 AM – 12 AM<br>Concierge: 24/7<br>Restaurant: As per schedule</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="booking-form-wrap reveal">
+      <h2 style="font-family:'Playfair Display',serif; font-size:32px; margin-bottom:8px;">Send a <em style="color:var(--gold); font-style:italic;">Message</em></h2>
+      <p style="color:var(--text-muted); font-size:13px; margin-bottom:30px;">Our team will respond within 2 hours</p>
+      <form onsubmit="this.querySelector('button').textContent='Message Sent ✓'; this.querySelector('button').style.background='#00C864'; return false;">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-control" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Subject</label>
+          <select class="form-control">
+            <option>Room Reservation</option>
+            <option>Table Booking</option>
+            <option>Event Enquiry</option>
+            <option>Special Occasion</option>
+            <option>Feedback</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-control" rows="5" placeholder="How can we help you?" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Message →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Map placeholder -->
+  <div style="margin-top:80px; background:var(--dark2); border:1px solid var(--border); padding:60px; text-align:center;" class="reveal">
+    <div style="font-size:60px; margin-bottom:20px;">📍</div>
+    <div style="font-family:'Playfair Display',serif; font-size:28px; margin-bottom:12px;">Icon5Star Tower, Rajkot</div>
+    <div style="color:var(--text-muted); font-size:14px; margin-bottom:24px;">MG Road, Rajkot, Gujarat 360001 · Near Jubilee Garden</div>
+    <a href="https://maps.google.com" target="_blank" class="btn-secondary" style="text-decoration:none;">Open in Google Maps →</a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,171 @@
+<%- include('partials/header') %>
+
+<!-- Hero -->
+<section style="height:70vh; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+  <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80') center/cover;transform:scale(1.1);animation:heroZoom 20s ease-in-out infinite alternate;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85));"></div>
+  <div style="position:relative;z-index:2;text-align:center;">
+    <div class="hero-tag">★ &nbsp; Award-Winning Cuisine &nbsp; ★</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:80px;font-weight:900;line-height:0.9;opacity:0;animation:fadeUp 1s 0.5s forwards;">Fine <em style="color:var(--gold);font-style:italic;">Dining</em></h1>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:22px;color:rgba(255,255,255,0.7);margin-top:20px;opacity:0;animation:fadeUp 1s 0.8s forwards;">Three extraordinary restaurants. One unforgettable experience.</p>
+  </div>
+</section>
+
+<!-- Restaurants -->
+<section class="section">
+  <div style="text-align:center; margin-bottom:70px;">
+    <div class="section-tag reveal" style="justify-content:center;">Our Restaurants</div>
+    <h2 class="section-title reveal" style="text-align:center;">Dining <em>Destinations</em></h2>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-bottom:80px;">
+    <% const restaurants = [
+      { name: 'Spice Monarch', desc: 'Royal Indian cuisine — Mughal-inspired recipes cooked in traditional tandoor ovens', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80', tag: 'Indian Fine Dining', timing: '12 PM – 11 PM' },
+      { name: 'The Icon Grill', desc: 'Contemporary fusion — East meets West with modern cooking techniques and premium ingredients', img: 'https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=600&q=80', tag: 'Fusion & Grill', timing: '7 PM – 12 AM' },
+      { name: 'Sky 5 Rooftop', desc: 'Cocktails, small plates and spectacular panoramic views from the 30th floor', img: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&q=80', tag: 'Rooftop Bar & Dining', timing: '6 PM – 2 AM' },
+    ]; %>
+    <% restaurants.forEach((r, i) => { %>
+      <div class="food-card reveal" style="animation-delay:<%= i * 0.15 %>s;">
+        <img class="food-img" src="<%= r.img %>" alt="<%= r.name %>" style="aspect-ratio:16/9;">
+        <div class="food-info">
+          <div class="food-tag"><%= r.tag %></div>
+          <div class="food-name" style="font-size:24px;"><%= r.name %></div>
+          <div class="food-desc"><%= r.desc %></div>
+          <div style="font-size:12px; color:var(--gold);">⏰ <%= r.timing %></div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</section>
+
+<!-- Full Menu -->
+<section style="padding:0 60px 120px;">
+  <div style="text-align:center; margin-bottom:60px;">
+    <div class="section-tag reveal" style="justify-content:center;">Spice Monarch</div>
+    <h2 class="section-title reveal" style="text-align:center;">Our <em>Menu</em></h2>
+  </div>
+
+  <!-- Starters -->
+  <div style="margin-bottom:60px;">
+    <h3 style="font-family:'Playfair Display',serif; font-size:36px; margin-bottom:8px; color:var(--gold);">Starters & Kebabs</h3>
+    <div style="height:1px; background:var(--border); margin-bottom:30px;"></div>
+    <div class="food-grid">
+      <% const starters = [
+        { name: 'Paneer Tikka', desc: 'Marinated cottage cheese with bell peppers in tandoor', price: '₹550', tag: '🌱 Veg', img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&q=80' },
+        { name: 'Seekh Kebab', desc: 'Minced lamb with spices on skewers — smoky char finish', price: '₹750', tag: '🍗 Non-Veg', img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&q=80' },
+        { name: 'Hara Bhara Kebab', desc: 'Spinach & peas patty with coriander chutney', price: '₹450', tag: '🌱 Veg', img: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&q=80' },
+        { name: 'Chicken Malai Tikka', desc: 'Cream-marinated chicken — melt-in-mouth tenderness', price: '₹850', tag: '🍗 Non-Veg', img: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&q=80' },
+      ]; %>
+      <% starters.forEach((item, i) => { %>
+        <div class="food-card reveal" style="animation-delay:<%= i * 0.1 %>s;">
+          <img class="food-img" src="<%= item.img %>" alt="<%= item.name %>">
+          <div class="food-info">
+            <div class="food-tag"><%= item.tag %></div>
+            <div class="food-name"><%= item.name %></div>
+            <div class="food-desc"><%= item.desc %></div>
+            <div class="food-price"><%= item.price %></div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <!-- Mains -->
+  <div style="margin-bottom:60px;">
+    <h3 style="font-family:'Playfair Display',serif; font-size:36px; margin-bottom:8px; color:var(--gold);">Main Course</h3>
+    <div style="height:1px; background:var(--border); margin-bottom:30px;"></div>
+    <div class="food-grid">
+      <% const mains = [
+        { name: 'Dal Makhani Royal', desc: 'Slow-cooked black lentils in aromatic cream & butter sauce', price: '₹650', tag: '🌱 Signature Veg', img: 'https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=400&q=80' },
+        { name: 'Murgh Makhani', desc: 'Butter chicken in velvety tomato-cream sauce', price: '₹950', tag: '🍗 Chef Special', img: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&q=80' },
+        { name: 'Paneer Butter Masala', desc: 'Fresh cottage cheese in rich onion-tomato gravy', price: '₹750', tag: '🌱 Veg', img: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&q=80' },
+        { name: 'Lamb Rogan Josh', desc: 'Kashmiri-style slow-cooked lamb with bold spices', price: '₹1,100', tag: '🥩 Non-Veg', img: 'https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&q=80' },
+        { name: 'Icon5Star Biryani', desc: '24hr marinated protein, aged basmati, saffron, raita', price: '₹1,250', tag: '👑 Signature', img: 'https://images.unsplash.com/photo-1563379091339-03246963d50d?w=400&q=80' },
+        { name: 'Palak Paneer Premium', desc: 'Fresh spinach puree with hand-made cottage cheese', price: '₹700', tag: '🌱 Veg', img: 'https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&q=80' },
+        { name: 'Fish Amritsari', desc: 'Crispy battered river fish with chaat masala glaze', price: '₹980', tag: '🐟 Non-Veg', img: 'https://images.unsplash.com/photo-1559847844-5315695dadae?w=400&q=80' },
+        { name: 'Shahi Paneer', desc: 'Paneer in royal cashew-cream sauce — Mughal heritage recipe', price: '₹850', tag: '🌱 Veg', img: 'https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=400&q=80' },
+      ]; %>
+      <% mains.forEach((item, i) => { %>
+        <div class="food-card reveal" style="animation-delay:<%= i * 0.08 %>s;">
+          <img class="food-img" src="<%= item.img %>" alt="<%= item.name %>">
+          <div class="food-info">
+            <div class="food-tag"><%= item.tag %></div>
+            <div class="food-name"><%= item.name %></div>
+            <div class="food-desc"><%= item.desc %></div>
+            <div class="food-price"><%= item.price %></div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <!-- Breads & Rice -->
+  <div style="margin-bottom:60px; display:grid; grid-template-columns:1fr 1fr; gap:60px;">
+    <div>
+      <h3 style="font-family:'Playfair Display',serif; font-size:30px; margin-bottom:8px; color:var(--gold);">Breads</h3>
+      <div style="height:1px; background:var(--border); margin-bottom:24px;"></div>
+      <% const breads = [
+        { name: 'Butter Naan', price: '₹120' },
+        { name: 'Garlic Naan', price: '₹150' },
+        { name: 'Stuffed Kulcha', price: '₹180' },
+        { name: 'Laccha Paratha', price: '₹160' },
+        { name: 'Tandoori Roti', price: '₹80' },
+        { name: 'Peshwari Naan (Coconut)', price: '₹200' },
+      ]; %>
+      <% breads.forEach(item => { %>
+        <div style="display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--border);">
+          <span style="font-size:14px; color:rgba(255,255,255,0.8);">🫓 <%= item.name %></span>
+          <span style="color:var(--gold); font-weight:600;"><%= item.price %></span>
+        </div>
+      <% }) %>
+    </div>
+    <div>
+      <h3 style="font-family:'Playfair Display',serif; font-size:30px; margin-bottom:8px; color:var(--gold);">Beverages</h3>
+      <div style="height:1px; background:var(--border); margin-bottom:24px;"></div>
+      <% const beverages = [
+        { name: 'Saffron Lassi', price: '₹350' },
+        { name: 'Mango Shrikhand', price: '₹320' },
+        { name: 'Rose Sharbat', price: '₹280' },
+        { name: 'Masala Chai Royal', price: '₹220' },
+        { name: 'Fresh Coconut Water', price: '₹250' },
+        { name: 'Icon5 Signature Mocktail', price: '₹450' },
+      ]; %>
+      <% beverages.forEach(item => { %>
+        <div style="display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid var(--border);">
+          <span style="font-size:14px; color:rgba(255,255,255,0.8);">🥤 <%= item.name %></span>
+          <span style="color:var(--gold); font-weight:600;"><%= item.price %></span>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <!-- Desserts -->
+  <div>
+    <h3 style="font-family:'Playfair Display',serif; font-size:36px; margin-bottom:8px; color:var(--gold);">Desserts</h3>
+    <div style="height:1px; background:var(--border); margin-bottom:30px;"></div>
+    <div class="food-grid">
+      <% const desserts = [
+        { name: 'Gulab Jamun Supreme', desc: 'Rose-infused dumplings with saffron ice cream & gold leaf', price: '₹450', tag: '🍮 Signature', img: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=400&q=80' },
+        { name: 'Kulfi Falooda', desc: 'Traditional malai kulfi with rose falooda & basil seeds', price: '₹380', tag: '🍦 Classic', img: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80' },
+        { name: 'Gajar Ka Halwa', desc: 'Slow-cooked carrot pudding with khoya & dry fruits', price: '₹420', tag: '🥕 Heritage', img: 'https://images.unsplash.com/photo-1481391319762-47dff72954d9?w=400&q=80' },
+        { name: 'Rasmalai Royale', desc: 'Saffron-infused milk with soft chenna dumplings', price: '₹480', tag: '🌸 Premium', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80' },
+      ]; %>
+      <% desserts.forEach((item, i) => { %>
+        <div class="food-card reveal" style="animation-delay:<%= i * 0.1 %>s;">
+          <img class="food-img" src="<%= item.img %>" alt="<%= item.name %>">
+          <div class="food-info">
+            <div class="food-tag"><%= item.tag %></div>
+            <div class="food-name"><%= item.name %></div>
+            <div class="food-desc"><%= item.desc %></div>
+            <div class="food-price"><%= item.price %></div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:60px;">
+    <a href="/booking/table" class="btn-primary" style="text-decoration:none;">Reserve a Table Now</a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

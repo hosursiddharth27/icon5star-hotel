@@ -1,0 +1,178 @@
+<%- include('partials/header') %>
+
+<div class="booking-page">
+  <div class="booking-page-header">
+    <div class="section-tag" style="justify-content:center;">Fine Dining Reservation</div>
+    <h1 class="section-title" style="text-align:center;">Reserve Your <em>Table</em></h1>
+    <p style="text-align:center; color:var(--text-muted); font-family:'Cormorant Garamond',serif; font-size:20px; margin-top:10px;">
+      An unforgettable dining experience awaits — curated just for you
+    </p>
+  </div>
+
+  <div class="booking-grid">
+    <!-- Form -->
+    <div class="booking-form-wrap">
+      <h2 style="font-family:'Playfair Display',serif; font-size:28px; margin-bottom:30px;">Reservation Details</h2>
+      <form action="/booking/table" method="POST">
+        <div class="form-group">
+          <label class="form-label">Table Type</label>
+          <select name="tableType" id="tableType" class="form-control" required>
+            <option value="">Select your table</option>
+            <option value="Standard Table (2 People)">Standard Table (2 People) — ₹500</option>
+            <option value="Family Table (4 People)">Family Table (4 People) — ₹1,200</option>
+            <option value="Large Table (6 People)">Large Table (6 People) — ₹2,200</option>
+            <option value="Banquet Table (10 People)">Banquet Table (10 People) — ₹4,500</option>
+            <option value="Private Dining Room (20 People)">Private Dining Room (20 People) — ₹15,000</option>
+          </select>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div class="form-group">
+            <label class="form-label">Date</label>
+            <input type="date" name="date" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Time</label>
+            <select name="time" class="form-control" required>
+              <option value="">Select time</option>
+              <option value="07:00 AM">07:00 AM — Breakfast</option>
+              <option value="08:00 AM">08:00 AM — Breakfast</option>
+              <option value="12:00 PM">12:00 PM — Lunch</option>
+              <option value="01:00 PM">01:00 PM — Lunch</option>
+              <option value="02:00 PM">02:00 PM — Lunch</option>
+              <option value="07:00 PM">07:00 PM — Dinner</option>
+              <option value="08:00 PM">08:00 PM — Dinner</option>
+              <option value="09:00 PM">09:00 PM — Dinner</option>
+              <option value="10:00 PM">10:00 PM — Late Dinner</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Number of Guests</label>
+          <select name="guests" class="form-control" required>
+            <option value="1">1 Guest</option>
+            <option value="2" selected>2 Guests</option>
+            <option value="3">3 Guests</option>
+            <option value="4">4 Guests</option>
+            <option value="5">5 Guests</option>
+            <option value="6">6 Guests</option>
+            <option value="8">8 Guests</option>
+            <option value="10">10 Guests</option>
+            <option value="15">15 Guests</option>
+            <option value="20">20 Guests</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Special Occasion</label>
+          <select name="occasion" class="form-control">
+            <option value="">None</option>
+            <option value="Birthday">🎂 Birthday</option>
+            <option value="Anniversary">💑 Anniversary</option>
+            <option value="Wedding">💍 Wedding</option>
+            <option value="Business Dinner">💼 Business Dinner</option>
+            <option value="Date Night">❤️ Date Night</option>
+            <option value="Family Gathering">👨‍👩‍👧‍👦 Family Gathering</option>
+            <option value="Farewell Party">🥂 Farewell Party</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Food Preference</label>
+          <select name="foodPreference" class="form-control">
+            <option value="Both">Both Veg & Non-Veg</option>
+            <option value="Veg">🌱 Pure Vegetarian</option>
+            <option value="Non-Veg">🍗 Non-Vegetarian</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Special Requests</label>
+          <textarea name="specialRequests" class="form-control" rows="3" placeholder="E.g. allergy info, decoration requests, high chair needed..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Confirm Table Reservation →</button>
+      </form>
+    </div>
+
+    <!-- Summary Sidebar -->
+    <div>
+      <div class="booking-summary">
+        <div style="font-size:10px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:24px;">Reservation Summary</div>
+        <div class="summary-item">
+          <span>Table Type</span>
+          <span id="tableSummaryType" style="color:var(--white); font-weight:500;">Select table</span>
+        </div>
+        <div class="summary-item">
+          <span>Reservation Fee</span>
+          <span id="tableSummaryPrice" style="color:var(--gold);">—</span>
+        </div>
+        <hr class="summary-divider">
+        <div style="font-size:12px; color:var(--text-muted); line-height:1.7;">
+          The reservation fee is credited towards your food bill. If your food bill exceeds the table fee, only the difference is charged.
+        </div>
+      </div>
+
+      <!-- Table Type Cards -->
+      <div style="margin-top:30px;">
+        <div style="font-size:10px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:20px;">Table Options</div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-name">🪑 Standard Table</span>
+            <span class="price-card-price">₹500</span>
+          </div>
+          <div class="price-card-desc">2 People · Indoor/Outdoor seating available</div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-name">👨‍👩‍👧 Family Table</span>
+            <span class="price-card-price">₹1,200</span>
+          </div>
+          <div class="price-card-desc">4 People · Garden or Main Hall</div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-name">🎉 Large Table</span>
+            <span class="price-card-price">₹2,200</span>
+          </div>
+          <div class="price-card-desc">6 People · Premium window seating</div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-name">🥂 Banquet Table</span>
+            <span class="price-card-price">₹4,500</span>
+          </div>
+          <div class="price-card-desc">10 People · Grand Ballroom section</div>
+        </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-name">👑 Private Dining Room</span>
+            <span class="price-card-price">₹15,000</span>
+          </div>
+          <div class="price-card-desc">20 People · Full private room with dedicated staff</div>
+        </div>
+      </div>
+
+      <!-- Food Menu Preview -->
+      <div style="margin-top:30px; background:var(--dark2); border:1px solid var(--border); padding:30px;">
+        <div style="font-size:10px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; margin-bottom:20px;">Sample Menu Prices</div>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <% const menuItems = [
+            { name: 'Dal Makhani Royal', price: '₹650', tag: '🌱' },
+            { name: 'Paneer Butter Masala', price: '₹750', tag: '🌱' },
+            { name: 'Murgh Makhani', price: '₹950', tag: '🍗' },
+            { name: 'Icon5Star Biryani', price: '₹1,250', tag: '👑' },
+            { name: 'Seekh Kebab Platter', price: '₹1,100', tag: '🔥' },
+            { name: 'Gulab Jamun Supreme', price: '₹450', tag: '🍮' },
+            { name: 'Saffron Lassi', price: '₹350', tag: '🥛' },
+            { name: 'Naan Basket (4 pcs)', price: '₹280', tag: '🫓' },
+          ]; %>
+          <% menuItems.forEach(item => { %>
+            <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); padding-bottom:10px;">
+              <span style="font-size:13px; color:var(--text-muted);"><%= item.tag %> &nbsp;<%= item.name %></span>
+              <span style="font-size:14px; color:var(--gold); font-weight:600;"><%= item.price %></span>
+            </div>
+          <% }) %>
+        </div>
+        <a href="/dining" style="display:block; text-align:center; margin-top:20px; font-size:11px; letter-spacing:2px; color:var(--gold); text-decoration:none; text-transform:uppercase;">View Full Menu →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

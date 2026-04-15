@@ -1,0 +1,56 @@
+<%- include('partials/header') %>
+
+<section style="height:60vh; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+  <div style="position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1920&q=80') center/cover;"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.85));"></div>
+  <div style="position:relative;z-index:2;text-align:center;">
+    <div class="hero-tag">★ &nbsp; Extraordinary Accommodations &nbsp; ★</div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:80px;font-weight:900;line-height:0.9;opacity:0;animation:fadeUp 1s 0.5s forwards;">Rooms & <em style="color:var(--gold);font-style:italic;">Suites</em></h1>
+  </div>
+</section>
+
+<section class="section">
+  <% const rooms = [
+    { type: 'Deluxe Room', price: '₹4,999', night: '/night', size: '35 sqm', bed: 'King/Twin Bed', view: 'City View', img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80', amenities: ['Free WiFi', 'Minibar', 'Smart TV', 'Air Conditioning', 'Rain Shower', '24hr Room Service'], desc: 'A harmonious blend of comfort and contemporary design. Our Deluxe Rooms feature floor-to-ceiling windows offering breathtaking city panoramas.' },
+    { type: 'Premium Suite', price: '₹9,999', night: '/night', size: '60 sqm', bed: 'King Bed + Living Room', view: 'Pool View', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80', amenities: ['All Deluxe Amenities', 'Separate Living Room', 'Jacuzzi Bathtub', 'Butler Service', 'Nespresso Machine', 'Balcony'], desc: 'Elevated luxury in a spacious suite featuring a separate living area, private jacuzzi and exclusive butler service.' },
+    { type: 'Royal Suite', price: '₹18,999', night: '/night', size: '90 sqm', bed: '2 King Bedrooms', view: 'Panoramic View', img: 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=900&q=80', amenities: ['2 Bedrooms', 'Private Terrace', 'Plunge Pool', 'Chef on Request', 'Airport Transfer', 'Spa Credits'], desc: 'A regal retreat spanning two bedrooms with a private terrace, plunge pool and chef-on-request service.' },
+    { type: 'Presidential Suite', price: '₹34,999', night: '/night', size: '150 sqm', bed: 'Full Floor', view: 'City & Sea View', img: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80', amenities: ['Full Floor Exclusive', 'Private Chef', 'Limo Transfer', 'Dedicated Team', 'Wine Cellar', 'Media Room'], desc: 'Commanding an entire floor with a private chef, limousine and a dedicated team attending to your every need.' },
+    { type: 'Penthouse', price: '₹74,999', night: '/night', size: '300 sqm', bed: '3 Bedrooms + Rooftop', view: '360° Panoramic', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=900&q=80', amenities: ['Rooftop Private Pool', 'Helipad Access', 'Executive Chef', 'Security Detail', 'Home Theatre', 'Art Collection'], desc: 'The crown jewel of Icon5Star. A 300 sqm sanctuary with private rooftop pool, helipad access and museum-quality art.' },
+  ]; %>
+
+  <% rooms.forEach((room, i) => { %>
+    <div style="display:grid; grid-template-columns:<%= i%2===0 ? '1fr 1fr' : '1fr 1fr' %>; gap:0; margin-bottom:4px; <%= i%2!==0 ? 'direction:rtl;' : '' %>">
+      <div style="overflow:hidden; direction:ltr; aspect-ratio:16/10;">
+        <img src="<%= room.img %>" alt="<%= room.type %>" style="width:100%; height:100%; object-fit:cover; transition:transform 0.8s; display:block;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      </div>
+      <div style="background:var(--dark2); padding:60px; display:flex; flex-direction:column; justify-content:center; direction:ltr;">
+        <div class="section-tag reveal" style="margin-bottom:12px;">Room <%= i+1 %> of <%= rooms.length %></div>
+        <h2 class="section-title reveal" style="font-size:42px; margin-bottom:12px;"><%= room.type %></h2>
+        <div style="display:flex; gap:30px; margin-bottom:20px; flex-wrap:wrap;">
+          <span style="font-size:12px; color:var(--text-muted);">📐 <%= room.size %></span>
+          <span style="font-size:12px; color:var(--text-muted);">🛏️ <%= room.bed %></span>
+          <span style="font-size:12px; color:var(--text-muted);">🪟 <%= room.view %></span>
+        </div>
+        <p style="font-family:'Cormorant Garamond',serif; font-size:18px; color:var(--text-muted); line-height:1.7; margin-bottom:24px; max-width:480px;"><%= room.desc %></p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:30px;">
+          <% room.amenities.forEach(a => { %>
+            <span style="padding:6px 14px; border:1px solid var(--border); font-size:11px; color:var(--text-muted); letter-spacing:1px;">✓ <%= a %></span>
+          <% }) %>
+        </div>
+        <div style="display:flex; align-items:center; gap:30px; margin-top:auto;">
+          <div>
+            <div style="font-family:'Playfair Display',serif; font-size:42px; color:var(--gold);"><%= room.price %></div>
+            <div style="font-size:11px; color:var(--text-muted);">per night · taxes included</div>
+          </div>
+          <% if (user) { %>
+            <a href="/booking/room" class="btn-primary" style="text-decoration:none;">Book This Suite</a>
+          <% } else { %>
+            <a href="/auth/login" class="btn-primary" style="text-decoration:none;">Login to Book</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  <% }) %>
+</section>
+
+<%- include('partials/footer') %>
